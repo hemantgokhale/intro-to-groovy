@@ -1,9 +1,14 @@
 package intro.to.spock
 
+import java.util.concurrent.TimeUnit;
+
+import spock.lang.IgnoreIf;
+import spock.lang.Requires;
 import spock.lang.Specification
+import spock.lang.Timeout;
 
 
-class Conditions extends Specification {
+class DemoExtentions extends Specification {
 
 	Stack stack
 	
@@ -13,7 +18,10 @@ class Conditions extends Specification {
 		assert stack.empty()	// use explicit assert outside of "then" and "expect" blocks
 	}
 	
+	@Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
 	def "Poping an empty stack throws an exception"() {
+		//sleep(100)
+		
 		when:
 		stack.pop()
 		
@@ -22,6 +30,7 @@ class Conditions extends Specification {
 		stack.empty()				// test continues after confirming exception is thrown
 	}
 	
+	@Requires({System.getProperty("os.name").contains("windows")})
 	def "Poping an empty stack throws an exception alternate syntax"() {
 		when:
 		stack.pop()
@@ -32,6 +41,7 @@ class Conditions extends Specification {
 		stack.empty()
 	}
 	
+	@IgnoreIf({System.getProperty("os.name").contains("Mac")})
 	def "HashMap accepts a null key"() {
 		HashMap map = new HashMap()
 		
