@@ -5,7 +5,7 @@ import spock.lang.*
 
 class MyFirstSpecification extends Specification {
 
-	void emptyList() {
+	void "A new list is empty"() {
 		
 		List<String> list = new ArrayList()
 		

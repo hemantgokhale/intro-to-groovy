@@ -5,28 +5,72 @@ import spock.lang.Specification
 
 class Fields extends Specification {
 
-	List names = ["George", "John", "Thomas", "James"]
+	private static final int DEPOSIT_AMOUNT = 10
+
+	Account account = new Account()
 	
-	def "Splicing a list"() {
-		when:
-		def fragment = names[1..2]
-		
-		then:
-		fragment == ["John", "Thomas"]
+	def "New account has zero balance in default currency"() {
+		expect:
+		account.balance == 0
+		account.currency == Account.Currency.USD
 	}
 	
-	def "Splicing a list; using when/then blocks"() {
-		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	def "Account balance increases when you make a deposit"() {
 		when:
-		def fragment = names[1..2]
+		account.deposit(DEPOSIT_AMOUNT)
 		
 		then:
-		fragment == ["John", "Thomas"]
+		account.balance == DEPOSIT_AMOUNT
+		
+		when:
+		account.deposit(DEPOSIT_AMOUNT)
+		
+		then:
+		account.balance == DEPOSIT_AMOUNT * 2		
 	}
 	
-	def "Splicing a list using expect block"() {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	def "Making a desposit returns the new balance"() {
 		
 		expect:
-		names[1..2] == ["John", "Thomas"]
+		account.deposit(DEPOSIT_AMOUNT) == DEPOSIT_AMOUNT
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	def "Depositing a negative amount throws an exception!"() {
+		when: "you deposit a negative amount"
+		account.deposit(-DEPOSIT_AMOUNT)
+		
+		then: "an exception is thrown and the balance does not change"
+		thrown(IllegalArgumentException)
+		account.balance == 0
 	}
 }

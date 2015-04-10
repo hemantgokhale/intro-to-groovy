@@ -13,6 +13,19 @@ class DataDrivenTests extends Specification {
 		Math.max(100, 12) == 100
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	def "maximum of two numbers using where block"(int a, int b, int c) {
 		expect:
 		Math.max(a, b) == c
@@ -23,6 +36,21 @@ class DataDrivenTests extends Specification {
 		 -1 |  1 |   1
 		100 | 12 | 100
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Unroll
 	def "maximum of #a and #b is #c"(int a, int b, int c) {
@@ -36,6 +64,18 @@ class DataDrivenTests extends Specification {
 		100 | 12 | 100
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Unroll
 	def "maximum of #a and #b is #c. (using data pipe)"(int a, int b, int c) {

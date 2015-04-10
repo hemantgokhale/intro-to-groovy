@@ -16,6 +16,12 @@ class FeatureMethods extends Specification {
 		fragment == ["John", "Thomas"]
 	}
 	
+
+	
+	
+
+	
+		
 	def "setup label is optional"() {
 		
 		List names = ["George", "John", "Thomas", "James"]
@@ -26,7 +32,19 @@ class FeatureMethods extends Specification {
 		then:
 		fragment == ["John", "Thomas"]
 	}
+
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 	def "using expect instead of when/then"() {
 		
 		List names = ["George", "John", "Thomas", "James"]
@@ -34,7 +52,20 @@ class FeatureMethods extends Specification {
 		expect:
 		names[1..2] == ["John", "Thomas"]
 	}
+
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 	def "using cleanup block"() {
 		setup:
 		File file = new File("/tmp/test.txt")
